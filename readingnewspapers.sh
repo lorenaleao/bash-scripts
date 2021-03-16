@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wget -qO - $1 | sed -n 's:<p>\(.*\)</p>:\1\n:p' | sed -e '1s/^ *//' -e '/^[[:blank:]]/d' -e 's/<[^>]*>//g' -e 's/&nbsp;/ /g' -e 's/&#8230;/.../g' -e 's/&aacute;/á/g'  -e 's/&uacute;/ú/g'  -e 's/&iacute;/í/g'  -e 's/&oacute;/ó/g'  -e 's/&eacute;/é/g' -e 's/&agrave;/à/g'  -e 's/&quot;/"/g' -e 's/&ldquo;/“/g' -e 's/&rdquo;/”/g'  -e 's/&mdash/—/g' -e 's/&lsquo;/‘/g' -e 's/&rsquo;/’/g' -e 's/&ccedil;/ç/g'  -e 's/&ocirc;/ô/g'  -e 's/&ecirc;/ê/g'  -e 's/&acirc;/â/g' -e 's/&atilde;/ã/g' -e 's/&otilde;/õ/g' -e 's/&Aacute;/Á/g'  -e 's/&Uacute;/Ú/g'  -e 's/&Iacute;/Í/g'  -e 's/&Oacute;/Ó/g'  -e 's/&Eacute;/É/g' | fold -sw 66 | less
